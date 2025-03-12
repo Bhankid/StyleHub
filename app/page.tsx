@@ -96,34 +96,38 @@ export default function Home() {
 
       {/* Services Preview */}
       <section className="py-20 bg-muted">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center mb-12">Our Services</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service) => (
-              <div key={service.name} className="bg-card rounded-lg overflow-hidden shadow-lg">
-                <div className="relative h-48">
-                  <Image
-                    src={service.image}
-                    alt={service.name}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">{service.name}</h3>
-                  <p className="text-muted-foreground mb-4">{service.description}</p>
-                  <div className="flex justify-between items-center">
-                    <span className="text-lg font-bold">${service.price}</span>
-                    <Button variant="outline" asChild>
-                      <Link href="/appointments">Book Now</Link>
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            ))}
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 className="text-3xl font-bold text-center mb-12">Our Services</h2>
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {services.map((service) => (
+        <div 
+          key={service.name} 
+          className="bg-card rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 hover:scale-[1.02]"
+        >
+          <div className="relative h-48 overflow-hidden">
+            <Image
+              src={service.image}
+              alt={service.name}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className="object-cover transition-transform duration-300 hover:scale-110"
+            />
+          </div>
+          <div className="p-6">
+            <h3 className="text-xl font-semibold mb-2 hover:text-primary transition-colors">{service.name}</h3>
+            <p className="text-muted-foreground mb-4">{service.description}</p>
+            <div className="flex justify-between items-center">
+              <span className="text-lg font-bold">₵{service.price}</span>
+              <Button variant="outline" asChild className="hover:bg-primary hover:text-white transition-colors">
+                <Link href="/appointments">Book Now</Link>
+              </Button>
+            </div>
           </div>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
     </div>
   )
 }
@@ -133,18 +137,37 @@ const services = [
     name: "Haircut & Styling",
     description: "Professional haircut and styling tailored to your preferences",
     price: "45",
-    image: "https://images.unsplash.com/photo-1584297091622-af8e5bd80b13?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+    image: "https://images.unsplash.com/photo-1622288432450-277d0fef5ed6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
   },
   {
     name: "Color Treatment",
     description: "Full color service using premium products for vibrant results",
     price: "85",
-    image: "https://images.unsplash.com/photo-1560869713-da86a9ec0686?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+    image: "https://images.unsplash.com/photo-1562322140-8baeececf3df?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
   },
   {
     name: "Beard Grooming",
     description: "Expert beard trimming and shaping for the perfect look",
     price: "35",
     image: "https://images.unsplash.com/photo-1621605815971-fbc98d665033?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    name: "Luxury Hair Treatment",
+    description: "Deep conditioning and rejuvenating treatment for healthy hair",
+    price: "75",
+    image: "https://images.unsplash.com/photo-1522338242992-e1a54906a8da?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    name: "Wedding Styling",
+    description: "Complete bridal hair and makeup packages for your special day",
+    price: "150",
+    image: "https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    name: "Hair Extensions",
+    description: "Premium quality hair extensions for added length and volume",
+    price: "200",
+    image: "https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
   }
 ]
+
